@@ -5,7 +5,7 @@ sudo yum -y install wget curl
 
 # Install and configure docker
 sudo yum update -y
-sudo amazon-linux-extras install docker
+sudo amazon-linux-extras install docker -y
 sudo systemctl enable docker
 sudo systemctl start docker
 sudo usermod -aG docker ec2-user
