@@ -5,6 +5,14 @@ provider "aws" {
 }
 
 
+
+
+# ++++++++++++++++++++ GET MY REAL IP +++++++++++++++++++++
+data "http" "my_ip_addr" {
+  url = "http://ipv4.icanhazip.com"
+}
+
+
 # ++++++++++++++++++++ SECURITY GROUPS +++++++++++++++++++++
 
 resource "aws_security_group" "devmachine" {
@@ -18,7 +26,7 @@ resource "aws_security_group" "devmachine" {
     protocol    = "tcp"
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-    cidr_blocks = ["0.0.0.0/0"] # add a CIDR block here
+    cidr_blocks = ["${chomp(data.http.my_ip_addr.body)}/32"] # add a CIDR block here
   }
   ingress {
     # SSH (change to whatever ports you need)
@@ -27,7 +35,7 @@ resource "aws_security_group" "devmachine" {
     protocol    = "tcp"
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-    cidr_blocks = ["0.0.0.0/0"] # add a CIDR block here
+    cidr_blocks = ["${chomp(data.http.my_ip_addr.body)}/32"] # add a CIDR block here
   }
 
   egress {
