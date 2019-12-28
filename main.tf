@@ -81,7 +81,7 @@ resource "aws_iam_policy" "dev" {
   "Statement": [
     {
       "Action": [
-        "ec2:Describe*"
+        "*"
       ],
       "Effect": "Allow",
       "Resource": "*"
