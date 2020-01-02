@@ -46,6 +46,12 @@ source .env/bin/activate
 pip install -r requirements.txt
 pip install --upgrade aws-cdk.core
 
+# TODO - isntall jupyterlab notebook
+conda install -c conda-forge jupyterlab
+conda install jupyter
+# Run Jupiter Lab by - jupyter lab
+
+
 #
 #
 ## Install aws cli
