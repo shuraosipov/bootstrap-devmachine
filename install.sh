@@ -1,14 +1,14 @@
 #!/usr/bin/bash
 # Install Development toools
-sudo yum -y groupinstall 'Development tools'
+#sudo yum -y groupinstall 'Development tools'
 
 # Install and configure docker
 
-#sudo yum update -y
-#sudo amazon-linux-extras install docker -y
-#sudo systemctl enable docker
-#sudo systemctl start docker
-#sudo usermod -aG docker ec2-user
+sudo yum update -y
+sudo amazon-linux-extras install docker -y
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker ec2-user
 ## Download miniconda and install python
 #
 # ++++++++++++++++++++ START ANACONDA INSTALL +++++++++++++++++++++
@@ -47,8 +47,8 @@ pip install -r requirements.txt
 pip install --upgrade aws-cdk.core
 
 # TODO - isntall jupyterlab notebook
-conda install -c conda-forge jupyterlab
-conda install jupyter
+conda install -y -c conda-forge jupyterlab
+conda install -y  jupyter
 # Run Jupiter Lab by - jupyter lab
 
 
